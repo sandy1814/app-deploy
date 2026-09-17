@@ -1,0 +1,15 @@
+name: deploy-app
+on: 
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  deployjob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printstep
+        run: echo "Deploying app..."
