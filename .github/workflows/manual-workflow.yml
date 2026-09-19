@@ -1,13 +1,14 @@
 name: manual_workflow
-on: workflow_dispatch
-  inputs:
-    environment: 
-      default: "dev"
-      required: false
-      type: string
-    version: 
-      required: true
-      type: string
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        default: "dev"
+        required: false
+        type: string
+      version:
+        required: true
+        type: string
 jobs:
   manual_workflow_jobs:
     runs-on: ubuntu-latest
@@ -16,4 +17,3 @@ jobs:
         run: |
           echo "Environment: {{ inputs.environment }}"
           echo "Version: {{ inputs.version }}"
-
