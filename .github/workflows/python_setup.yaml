@@ -2,7 +2,7 @@ name: python_setup
 on: push
 
 jobs:
-  python setup:
+  setup-python:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
