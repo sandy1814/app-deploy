@@ -1,0 +1,25 @@
+name: python_setup
+on: push
+
+jobs:
+  python setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Dependancy installation
+        run: pip install pytest flake8
+
+      - name: Python version verification
+        run: |
+          python --version
+          flake8 --version
+          pytest --version
+
+
