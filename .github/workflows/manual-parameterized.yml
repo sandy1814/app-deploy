@@ -21,7 +21,7 @@ jobs:
       - name: set validation status
         id: set-status
         run: |
-          if [ "${{inputs.run_validation }} == "true" ]; then
+          if [ "${{inputs.run_validation }}" == "true" ]; then
             echo "validation_status=success" >> $GITHUB_OUTPUT
           else
             echo "validation_status=skipped" >>$GITHUB_OUTPUT
