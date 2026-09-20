@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: print the inputs
         run: |
-          echo "Application name: ${{inputs.application_name}}"  
+          echo "Application namee: ${{inputs.application_name}}"  
           echo "run validation: ${{inputs.run_validation}}"
       - name: set validation status
         id: set-status
