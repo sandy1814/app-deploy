@@ -1,0 +1,39 @@
+name: manual-parameterized
+on:
+  workflow_dispatch:
+    inputs:
+      application_name:
+        type: string
+        required: true
+      run_validation:
+        type: boolean
+        required: true
+jobs:
+  validate:
+    outputs:
+      validation_status: ${{steps.set-status.outputs.validation_status}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: print the inputs
+        run: |
+          echo "Application name: {{inputs.application_name}}"  
+          echo "run validation: {{inputs.run_validation}}"
+      - name: set validation status
+        id: set-status
+        run: |
+          if [${{inputs.run_validation=="true"}}]; then
+            echo "validation_status=success" >> $GITHUB_OUTPUT
+          else
+            echo "validation_status=skipped" >>$GITHUB_OUTPUT
+          fi
+
+  summary:
+    needs: validate
+    if: needs.validate.outputs.validation_status == 'success'
+    steps:
+      - name: print summary
+        run: |
+          echo "Validation passed. Summary job executed."
+          echo "Application: ${{ inputs.application_name }}"
+
+
