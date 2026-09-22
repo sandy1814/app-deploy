@@ -14,7 +14,7 @@ jobs:
       validation_status: ${{steps.set-status.outputs.validation_status}}
     runs-on: ubuntu-latest
     steps:
-      - name: print the inputs
+      - name: printt the inputs
         run: |
           echo "Application namee: ${{inputs.application_name}}"  
           echo "run validation: ${{inputs.run_validation}}"
