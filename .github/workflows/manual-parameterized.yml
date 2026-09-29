@@ -1,4 +1,4 @@
-name: manual-parameterized
+name: Parameterized Manual Workflow
 on:
   workflow_dispatch:
     inputs:
@@ -14,7 +14,7 @@ jobs:
       validation_status: ${{steps.set-status.outputs.validation_status}}
     runs-on: ubuntu-latest
     steps:
-      - name: printt the inputs
+      - name: print the inputss
         run: |
           echo "Application name: ${{inputs.application_name}}"  
           echo "run validation: ${{inputs.run_validation}}"
